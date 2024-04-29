@@ -47,3 +47,34 @@ h2 {
     background-color: aquamarine;
 }
 
+.detallePokemon h2 {
+    text-align: center;
+    background-color: cornflowerblue;
+    padding: 20px;
+    color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.detallePokemon>div {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.detallePokemon div.detalles {
+    text-align: left;
+}
+
+.detallePokemon div.detalles h3 {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.detallePokemon div.detalles ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.detallePokemon div.detalles ul li {
+    width: 30%;
+}
