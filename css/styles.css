@@ -1,0 +1,44 @@
+body {
+    background: url('../images/pokemon-bkg.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+header {
+    background-color: #fafafa;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    background-color: rgba(255,255,255,.8);
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.listaPokemon {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.listaPokemon a {
+    background-color: #cccccc;
+    padding: 5px 20px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.listaPokemon a:hover {
+    background-color: aquamarine;
+}
+
+.listaPokemon a h2 {
+    text-transform: capitalize;
+}
