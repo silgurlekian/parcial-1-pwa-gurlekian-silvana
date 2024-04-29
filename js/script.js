@@ -1,28 +1,30 @@
-const apiURL = 'https://pokeapi.co/api/v2/pokemon?limit=100';
+const URL_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon?offset=200&limit=100';
 
-const mostrarTarjeta = (ubicacion) => {
-    const listaPokemon = document.getElementById("listaPokemon")
-    const li = document.createElement('li');
-    li.addEventListener('click', () => {
-        mostrarDetalle(ubicacion.id)
-    })
+const mostrarTarjeta = (pokemon) => {
+    const listaPokemon = document.getElementById("listaPokemon");
+    const a = document.createElement('a');
+    a.addEventListener('click', () => {
+        mostrarDetalle(pokemon.name);
+    });
 
-    const titulo = document.createElement('h3');
-    titulo.innerText = ubicacion.name;
-    li.appendChild(titulo);
+    const titulo = document.createElement('h2');
+    titulo.innerText = pokemon.name;
+    a.appendChild(titulo);
 
-    const descripcion = document.createElement('p');
-    descripcion.innerText = ubicacion.dimension;
-    li.appendChild(descripcion);
+    listaPokemon.appendChild(a);
+};
 
-    listaPokemon.appendChild(li);
-}
+const mostrarDetalle = (nombre) => {
+    window.location.href = `detalle.html?nombre=${nombre}`;
+};
 
-fetch(apiURL)
+const id_ubicacion = +window.location.href.split('?id=')[1];
+
+fetch(URL_ENDPOINT)
     .then(data => data.json())
     .then(result => {
-        const results = result.results.slice(0, 15);
+        const results = result.results.slice(0, 100);
         results.forEach(element => {
             mostrarTarjeta(element);
         });
-    })
+    });
