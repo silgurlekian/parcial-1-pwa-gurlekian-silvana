@@ -5,11 +5,11 @@ const mostrarDetalle = (pokemon) => {
     const detallePokemon = document.getElementById("detallePokemon");
     detallePokemon.innerHTML = `
         <h2>${pokemon.name}</h2>
-        <div class="d-flex">
-            <div class="col-6">
+        <div class="d-sm-flex">
+            <div class="col-12 col-sm-6">
                 <img src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
             </div>
-            <div class="col-6 detalles">
+            <div class="col-12 col-sm-6 detalles">
                 <h3>Altura:</h3> 
                 <p>${pokemon.height}</p>
                 <h3>Peso:</h3> 
