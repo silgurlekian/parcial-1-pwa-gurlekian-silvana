@@ -35,15 +35,16 @@ h2 {
     justify-content: center;
 }
 
-.listaPokemon a {
+.listaPokemon li {
     background-color: #cccccc;
     padding: 5px 20px;
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
+    list-style: none;
 }
 
-.listaPokemon a:hover {
+.listaPokemon li:hover {
     background-color: aquamarine;
 }
 
