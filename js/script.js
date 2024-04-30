@@ -8,9 +8,9 @@ const mostrarTarjeta = (pokemon) => {
     });
 
     const imagen = document.createElement('img');
-    imagen.src = pokemon.sprites.front_default; // Establecer la URL de la imagen
-    imagen.alt = pokemon.name; // Establecer el texto alternativo de la imagen
-    li.appendChild(imagen); // Agregar la imagen al elemento de la lista
+    imagen.src = pokemon.sprites.front_default;
+    imagen.alt = pokemon.name;
+    li.appendChild(imagen);
 
     const titulo = document.createElement('h2');
     titulo.innerText = pokemon.name;
@@ -27,15 +27,27 @@ const mostrarDetalle = (nombre) => {
     window.location.href = `detalle.html?nombre=${nombre}`;
 };
 
-fetch(URL_ENDPOINT)
-    .then(data => data.json())
-    .then(result => {
-        const results = result.results.slice(0, 100);
-        results.forEach(element => {
-            fetch(element.url) // Obtener los detalles de cada Pokémon
-                .then(response => response.json())
-                .then(pokemon => {
-                    mostrarTarjeta(pokemon);
-                })
+const searchInput = document.getElementById("searchInput");
+const searchResult = document.getElementById("listaPokemon");
+
+const obtenerPokemones = () => {
+    fetch(URL_ENDPOINT)
+        .then(response => response.json())
+        .then(data => {
+            searchResult.innerHTML = "";
+            const results = data.results.slice(0, 100);
+            results.forEach(result => {
+                fetch(result.url)
+                    .then(response => response.json())
+                    .then(pokemon => {
+                        if (pokemon.name.toLowerCase().includes(searchInput.value.trim().toLowerCase())) {
+                            mostrarTarjeta(pokemon);
+                        }
+                    });
+            });
         });
-    })
+};
+
+searchInput.addEventListener("input", obtenerPokemones);
+
+obtenerPokemones(); // Llamar a la función al cargar la página

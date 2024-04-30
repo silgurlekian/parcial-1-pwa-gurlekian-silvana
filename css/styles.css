@@ -48,6 +48,11 @@ h2 {
     background-color: aquamarine;
 }
 
+.listaPokemon li a:not([href]):not([class]), 
+.listaPokemon li a:not([href]):not([class]):hover {
+    text-decoration: underline;
+}
+
 .detallePokemon h2 {
     text-align: center;
     background-color: cornflowerblue;
