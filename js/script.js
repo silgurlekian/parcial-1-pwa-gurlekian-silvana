@@ -49,5 +49,4 @@ const obtenerPokemones = () => {
 };
 
 searchInput.addEventListener("input", obtenerPokemones);
-
-obtenerPokemones(); // Llamar a la función al cargar la página
+obtenerPokemones();
